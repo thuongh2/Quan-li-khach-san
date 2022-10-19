@@ -1,0 +1,25 @@
+.slider_bg_1{
+    background-image: url(./img/home/banner1.png);
+}
+
+.slider_bg_2{
+    background-image: url(./img/home/banner2.png);
+}
+
+.bg-black {
+    background-color: black !important;
+    padding: 15px 0 !important;
+}
+
+.d-flex-header {
+    display: flex !important;
+    justify-content: space-around !important;
+}
+
+.top_15 {
+    top: -15px !important;
+}
+
+h3{
+    color: rgb(255, 255, 255) !important;
+}
