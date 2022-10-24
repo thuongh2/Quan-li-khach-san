@@ -170,7 +170,7 @@
                 </div>
             </div>
         </div>
-        <div class="row m-5">
+        <div class="row">
             <div class="col-xl-4 col-md-4">
                 <div class="single_offers room_modify_1">
                     <div class="about_thumb">
