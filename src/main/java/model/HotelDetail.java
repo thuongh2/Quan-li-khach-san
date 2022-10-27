@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,6 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "hotel_detail")
 public class HotelDetail implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,14 +32,10 @@ public class HotelDetail implements Serializable{
 	
 	private float price;
 	
-	@Column(columnDefinition="TEXT")
 	private String desc;
 	
 	@OneToOne
 	private Post post;
-	
-	@OneToMany
-	private List<BookDetail> bookDetails;
 	
 
 }

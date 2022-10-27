@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "post")
 public class Post implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +27,6 @@ public class Post implements Serializable {
 	
 	private Date createDate;
 	
-	@Column(columnDefinition="TEXT")
 	private String content;
 	
 	private String image;
