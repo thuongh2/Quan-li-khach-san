@@ -4,7 +4,7 @@ import java.util.List;
 
 import model.Payment;
 
-public interface PaymentDAO {
+public interface IPaymentDAO {
 	
 	/**
      * Xuat danh sach thanh toan

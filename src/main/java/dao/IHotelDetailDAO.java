@@ -4,7 +4,7 @@ import java.util.List;
 
 import model.HotelDetail;
 
-public interface HotelDetailDAO {
+public interface IHotelDetailDAO {
 	/**
      * Xuat danh sach chi tiet phong
     */

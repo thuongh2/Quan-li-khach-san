@@ -16,26 +16,12 @@ import model.Payment;
 import model.User;
 import util.HibernateUtils;
 
-
-
 public class testHibernate {
+	SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+	Session session = sessionFactory.getCurrentSession();
 
-	JpaEntityManager jpaEntityManager = new JpaEntityManager() {
-	};
-	
-	 
-	 @Test
-	    public void save() {
-	        Payment payment = new Payment();
-	        payment.setPaymentDate(new Date());
-	        payment.setPaymentOption("ok");
-	        payment.setPaymentPrice(100);
-	        
-	        jpaEntityManager.saveOrUpdate(payment);
-	        
-	        List<Payment> payment2 = jpaEntityManager.getAll(Payment.class);
-	        
-	        assertNotNull(payment2);
+	@Test
+	public void save() {
 
-	    }
+	}
 }

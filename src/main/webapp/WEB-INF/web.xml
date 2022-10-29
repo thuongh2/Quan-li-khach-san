@@ -3,10 +3,9 @@
 	<display-name>WebCuoiKi</display-name>
 
 	<servlet>
-		<servlet-name>DownloadServlet</servlet-name>
-		<servlet-class>murach.download.DownloadServlet</servlet-class>
+		<servlet-name>PostServlet</servlet-name>
+		<servlet-class>PostServlet</servlet-class>
 	</servlet>
-
 
 
 

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,5 +24,12 @@ public class BookDetail {
 	@OneToOne
 	private User userDatLich;
 	
+	private String content;
 	
+	// có nhiều book cho 1 nhà trọ
+	@ManyToOne
+	private HotelDetail hotelDetail;
+	
+	@OneToOne
+	private Book book;
 }

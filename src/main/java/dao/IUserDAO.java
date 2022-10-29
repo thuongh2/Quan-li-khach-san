@@ -4,7 +4,8 @@ import java.util.List;
 
 import model.User;
 
-public interface UserDAO {
+
+public interface IUserDAO {
 	/**
      * Xuat danh sach nguoi dung
     */

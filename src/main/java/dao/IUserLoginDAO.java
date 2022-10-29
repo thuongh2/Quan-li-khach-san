@@ -3,7 +3,7 @@ package dao;
 import java.util.List;
 import model.UserLogin;
 
-public interface UserLoginDAO {
+public interface IUserLoginDAO {
 	
 	/**
      * Lay danh sach dap nhap tai khoan nguoi dung

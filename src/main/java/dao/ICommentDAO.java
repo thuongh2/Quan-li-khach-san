@@ -4,7 +4,7 @@ import java.util.List;
 
 import model.Comment;
 
-public interface CommentDAO {
+public interface ICommentDAO {
 	
 	/**
      * Xuat danh sach binh luanj

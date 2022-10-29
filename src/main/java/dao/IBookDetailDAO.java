@@ -4,19 +4,19 @@ import java.util.List;
 
 import model.BookDetail;
 
-public interface BookDetailDAO {
+public interface IBookDetailDAO {
 	
 	/**
      * Xuat danh sach chi tiet dat phong
     */
-	List<BookDetail> getAllBookDetail();
+	List<BookDetail> getAll();
 	
 	/**
      * Lay 1 chi tiet dat phong theo id
      *
      * @param id
     */
-	BookDetail getBookDetailById(int id);
+	BookDetail get(int id);
 	
 	/**
      * Tao chi tiet dat phong
@@ -24,7 +24,7 @@ public interface BookDetailDAO {
      * @param bookdeail
      * @return
     */
-	void createBookDetail(BookDetail bookdeail);
+	void save(BookDetail bookdeail);
 	
 	/**
      * Cap nhat thong tin chi tiet dat phong
@@ -32,7 +32,7 @@ public interface BookDetailDAO {
      * @param bookdeail
      * @return
     */
-	void updateBookDetail(BookDetail bookdeail);
+	void saveOrUpdate(BookDetail bookdeail);
 	
 	/**
      * Xoa chi tiet dat phong theo id
@@ -40,5 +40,5 @@ public interface BookDetailDAO {
      * @param bookdeail
      * @return
     */
-	void deleteBookDetail(int id);
+	void delete(int id);
 }
