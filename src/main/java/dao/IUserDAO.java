@@ -9,22 +9,22 @@ public interface IUserDAO {
 	/**
      * Xuat danh sach nguoi dung
     */
-	List<User> getAllUser();
+	List<User> getAll();
 	
 	/**
      * Lay 1 nguoi dung theo id
      *
      * @param id
     */
-	User getUserById(int id);
+	User get(int id);
 	
 	/**
      * Kiem tra co nguoi dung theo ten
      *
-     * @param username
+     * @param name
      * @return
     */
-	boolean hasUserWithUserName(String username);
+	User getByName(String name);
 	
 	/**
      * Tao nguoi dung moi
@@ -32,7 +32,7 @@ public interface IUserDAO {
      * @param user
      * @return
     */
-	void createUser(User user);
+	void save(User user);
 	
 	/**
      * Cap nhat thong tin thong tin nguoi dung
@@ -40,7 +40,7 @@ public interface IUserDAO {
      * @param user
      * @return
     */
-	void updateUser(User user);
+	void saveOrUpDate(User user);
 	
 	/**
      * Xoa nguoi dung theo id
@@ -48,5 +48,5 @@ public interface IUserDAO {
      * @param id
      * @return
     */
-	void deleteUser(int id);
+	void delete(int id);
 }
