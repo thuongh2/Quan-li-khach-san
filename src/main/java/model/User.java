@@ -19,10 +19,6 @@ import lombok.Setter;
 @Data
 @Table(name = "user_hotel")
 public class User implements Serializable{
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -35,7 +31,6 @@ public class User implements Serializable{
 	
 	private String phone;
 	
-	private String role;
 	
 	@OneToOne
 	private UserLogin userLogin;

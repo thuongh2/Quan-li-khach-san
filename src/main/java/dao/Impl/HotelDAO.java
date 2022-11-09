@@ -42,15 +42,19 @@ public class HotelDAO extends JpaEntityManager implements IHotelDAO {
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(Hotel hotelDeleteHotel) {
 		// TODO Auto-generated method stub
-		 super.delete(id);
+		super.delete(hotelDeleteHotel);
 	}
+	
+	
+
 	
 	public void savePostAndHotel(Hotel post, HotelDetail hotelDetail) {
 		super.save(hotelDetail);
 		post.setHotelDetail(hotelDetail);
 		super.save(post);
 	}
+	
 
 }

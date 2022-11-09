@@ -8,7 +8,7 @@
   
         <!-- Connection settings -->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/qlkhachsan</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/qlkhachsan?useEncoding=true&amp;characterEncoding=UTF-8</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">0377019134tT@</property>
   
@@ -20,7 +20,7 @@
         <property name="hibernate.current_session_context_class">thread</property>
   
         <!-- Update database on startup -->
-        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
   
         <!-- Annotated entity classes -->
         <mapping class="model.HotelDetail"/>

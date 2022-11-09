@@ -39,5 +39,5 @@ public interface IHotelDetailDAO {
      * @param id
      * @return
     */
-	void deleteHotelDetail(int id);
+	void deleteHotelDetail(HotelDetail id);
 }

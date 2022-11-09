@@ -32,4 +32,44 @@ public class BookDetail {
 	
 	@OneToOne
 	private Book book;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public User getUserDatLich() {
+		return userDatLich;
+	}
+
+	public void setUserDatLich(User userDatLich) {
+		this.userDatLich = userDatLich;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public HotelDetail getHotelDetail() {
+		return hotelDetail;
+	}
+
+	public void setHotelDetail(HotelDetail hotelDetail) {
+		this.hotelDetail = hotelDetail;
+	}
+
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
 }
