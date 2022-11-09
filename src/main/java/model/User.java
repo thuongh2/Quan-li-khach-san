@@ -17,7 +17,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@NamedQueries({ @NamedQuery(name = "findAll", query = "from User") })
 @Entity
 @Data
 @Table(name="user_hotel")
@@ -38,11 +37,9 @@ public class User implements Serializable{
 	@Column(name = "phone")
 	private String phone;
 	
-<<<<<<< HEAD
+
 	@Column(name = "role")
 	private String role;
-=======
->>>>>>> origin/master
 	
 	@OneToOne
 	private UserLogin userLogin;

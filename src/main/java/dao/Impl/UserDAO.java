@@ -3,6 +3,7 @@ package dao.Impl;
 import java.util.List;
 import java.util.UUID;
 
+import org.hibernate.Transaction;
 
 import dao.IUserDAO;
 import dao.JpaEntityManager;
@@ -10,10 +11,12 @@ import model.User;
 
 public class UserDAO extends JpaEntityManager implements IUserDAO {
 
-	
 	@Override
 	public List<User> getAll() {
-		return super.getAll(User.class);
+		Transaction trans = getCurentSession().beginTransaction();
+		List<User> ts = getCurentSession().createNativeQuery("from User").list();
+		trans.commit();
+		return ts;
 	}
 	
 	@Override

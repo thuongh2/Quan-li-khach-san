@@ -23,7 +23,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NamedQueries({ @NamedQuery(name = "findAll", query = "from Hotel p ") })
 @Entity
 @Table(name = "hotel")
 public class Hotel implements Serializable {
