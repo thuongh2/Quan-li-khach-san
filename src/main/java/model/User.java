@@ -2,13 +2,10 @@ package model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -18,6 +15,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@AllArgsConstructor
 @Data
 @Table(name="user_hotel")
 public class User implements Serializable{
@@ -25,21 +23,14 @@ public class User implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "email")
 	private String email;
 	
-	@Column(name = "phone")
 	private String phone;
 	
-
-	@Column(name = "role")
-	private String role;
 	
 	@OneToOne
 	private UserLogin userLogin;

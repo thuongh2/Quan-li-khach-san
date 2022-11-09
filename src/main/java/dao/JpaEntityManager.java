@@ -63,9 +63,8 @@ public class JpaEntityManager {
 	}
 
 	public <T> List<T> getAll(final Class<T> type) {
-		String name = "";
 		Transaction trans = getCurentSession().beginTransaction();
-		List<T> ts = null;
+		List<T> ts = getCurentSession().getNamedQuery("findAll").list();
 		trans.commit();
 		return ts;
 	}

@@ -18,7 +18,8 @@ public class HotelDAO extends JpaEntityManager implements IHotelDAO {
 
 	@Override
 	public Hotel get(int id) {
-		return super.get(Hotel.class, id);		
+		return super.get(Hotel.class, id);
+		
 	}
 
 	@Override
