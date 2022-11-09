@@ -150,15 +150,12 @@
 	<!-- offers_area_start -->
 	<div class="offers_area">
 		<div class="container">
+		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+		
+			
+			
 			<div class="row">
-				<div class="col-xl-12">
-					<div class="section_title text-center mb-100">
-						<span>Phòng ưu đãi</span>
-						<h3>Các ưu đãi đang diễn ra</h3>
-					</div>
-				</div>
-			</div>
-			<div class="row">
+			<c:forEach items="${hotels}" var="hotel">
 				<div class="col-xl-4 col-md-4">
 					<div class="single_offers">
 						<div class="about_thumb">
@@ -173,6 +170,7 @@
 						<a href="#" class="book_now">Đặt ngay</a>
 					</div>
 				</div>
+				</c:forEach>
 				<div class="col-xl-4 col-md-4">
 					<div class="single_offers">
 						<div class="about_thumb">

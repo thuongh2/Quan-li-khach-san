@@ -16,6 +16,6 @@ public interface IHotelDAO {
 	
 	void saveOrUpdate(Hotel post);
 	
-	void delete(int id);
+	void delete(Hotel hotel);
 
 }

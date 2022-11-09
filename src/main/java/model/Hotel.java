@@ -27,6 +27,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "hotel")
 public class Hotel implements Serializable {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;

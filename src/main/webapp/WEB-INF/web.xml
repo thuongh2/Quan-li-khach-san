@@ -3,15 +3,26 @@
 	<display-name>WebCuoiKi</display-name>
 
 	<servlet>
-		<servlet-name>PostServlet</servlet-name>
-		<servlet-class>PostServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>UserServlet</servlet-name>
-		<servlet-class>UserServlet</servlet-class>
+		<servlet-name>HotelAdminServlet</servlet-name>
+		<servlet-class>HotelAdminServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>HomeServlet</servlet-name>
+		<servlet-class>HomeServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>HomeServlet</servlet-name>
+		<url-pattern></url-pattern>
+	</servlet-mapping>
+
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+		</jsp-property-group>
+	</jsp-config>
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

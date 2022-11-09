@@ -35,7 +35,7 @@ public class HotelDetail implements Serializable {
 	private String description;
 
 	@OneToOne
-	private Hotel post;
+	private Hotel hotel;
 
 	// 1 nhà trọ có nhiều người đặt lịch
 	@OneToMany
@@ -89,12 +89,28 @@ public class HotelDetail implements Serializable {
 		this.description = desc;
 	}
 
-	public Hotel getPost() {
-		return post;
+	public Hotel getHotel() {
+		return hotel;
 	}
 
-	public void setPost(Hotel post) {
-		this.post = post;
+	public void setHotel(Hotel post) {
+		this.hotel = post;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<BookDetail> getBookDetail() {
+		return bookDetail;
+	}
+
+	public void setBookDetail(List<BookDetail> bookDetail) {
+		this.bookDetail = bookDetail;
 	}
 
 }

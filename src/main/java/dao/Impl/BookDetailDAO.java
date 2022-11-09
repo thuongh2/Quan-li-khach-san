@@ -33,7 +33,7 @@ public class BookDetailDAO extends JpaEntityManager implements IBookDetailDAO{
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(BookDetail id) {
 		super.delete(id);
 	}
 

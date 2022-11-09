@@ -26,6 +26,8 @@ public class UserLogin {
 	
 	private String password;
 	
+	private String role;
+	
 	@OneToOne
 	private User user;
 

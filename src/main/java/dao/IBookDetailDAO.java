@@ -40,5 +40,5 @@ public interface IBookDetailDAO {
      * @param bookdeail
      * @return
     */
-	void delete(int id);
+	void delete(BookDetail id);
 }
