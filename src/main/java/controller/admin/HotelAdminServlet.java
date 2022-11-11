@@ -145,7 +145,7 @@ public class HotelAdminServlet extends HttpServlet {
 		hotel.setContent(request.getParameter("content"));
 		hotel.setImage(request.getParameter("image"));
 		
-		HotelDetail hotelDetail = hotelDetailDAO.get(HotelDetail.class, id);
+		HotelDetail hotelDetail = hotelDetailDAO.get(HotelDetail.class, hotel.getHotelDetail().getId());
 		hotelDetail.setArea(Integer.parseInt(request.getParameter("area")));
 		hotelDetail.setNumberRoom(Integer.parseInt(request.getParameter("numberRoom")));
 		hotelDetail.setAddress(request.getParameter("address"));

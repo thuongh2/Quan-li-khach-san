@@ -1,6 +1,8 @@
 package controller.user;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +33,8 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setAttribute("hotels", hotelDAO.getAll(Hotel.class));
+		List<Hotel> hotels = hotelDAO.getAll();
+		request.setAttribute("hotels", hotelDAO.getAll());
 		request.getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 

@@ -41,7 +41,7 @@
 								<nav>
 									<ul id="navigation" class="d-flex-header">
 										<li><a class="active" href="index.jsp">home</a></li>
-										<li><a href="rooms.jsp">rooms</a></li>
+										<li><a href="RoomServlet">rooms</a></li>
 										<li><a href="#">Room <i class="ti-angle-down"></i></a>
 											<ul class="submenu">
 												<li><a href="blog.jsp">Room</a></li>
@@ -150,55 +150,25 @@
 	<!-- offers_area_start -->
 	<div class="offers_area">
 		<div class="container">
-		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-		
-			
-			
+			<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
+
 			<div class="row">
-			<c:forEach items="${hotels}" var="hotel">
-				<div class="col-xl-4 col-md-4">
-					<div class="single_offers">
-						<div class="about_thumb">
-							<img src="./img/home/offer1.png" height="255.5" alt="" />
+				<c:forEach items="${hotels}" var="hotel">
+					<div class="col-xl-4 col-md-4">
+						<div class="single_offers">
+							<div class="about_thumb">
+								<img src="${hotel.image }" height="255.5" alt="" />
+							</div>
+							<h4>${hotel.content }</h4>
+							<ul>
+								<li>${hotel.hotelDetail.description }</li>
+							</ul>
+							<a href="#" class="book_now">Đặt ngay</a>
 						</div>
-						<h3>Giảm giá 50% 2 tháng đầu tiên</h3>
-						<ul>
-							<li>Đầy đủ nội thất</li>
-							<li>Có gác, có ban công</li>
-							<li>Ở tối đa 4 người</li>
-						</ul>
-						<a href="#" class="book_now">Đặt ngay</a>
 					</div>
-				</div>
 				</c:forEach>
-				<div class="col-xl-4 col-md-4">
-					<div class="single_offers">
-						<div class="about_thumb">
-							<img src="./img/home/offer2.png" height="255.5" alt="" />
-						</div>
-						<h3>Giảm giá 30% 3 tháng đầu tiên</h3>
-						<ul>
-							<li>Đầy đủ nội thất</li>
-							<li>Có gác</li>
-							<li>Ở tối đa 3 người</li>
-						</ul>
-						<a href="#" class="book_now">Đặt ngay</a>
-					</div>
-				</div>
-				<div class="col-xl-4 col-md-4">
-					<div class="single_offers">
-						<div class="about_thumb">
-							<img src="./img/home/offer3.png" alt="" />
-						</div>
-						<h3>Giảm giá 30% 3 tháng đầu tiên</h3>
-						<ul>
-							<li>Nội thất: tủ lạnh</li>
-							<li>Có gác</li>
-							<li>Ở tối đa 2 người</li>
-						</ul>
-						<a href="#" class="book_now">Đặt ngay</a>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

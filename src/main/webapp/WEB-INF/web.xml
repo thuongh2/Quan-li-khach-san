@@ -2,20 +2,12 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
 	<display-name>WebCuoiKi</display-name>
 
-	<servlet>
-		<servlet-name>HotelAdminServlet</servlet-name>
-		<servlet-class>HotelAdminServlet</servlet-class>
-	</servlet>
 
 	<servlet>
 		<servlet-name>HomeServlet</servlet-name>
-		<servlet-class>HomeServlet</servlet-class>
+		<servlet-class>controller.user.HomeServlet</servlet-class>
+		<load-on-startup>0</load-on-startup>  
 	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>HomeServlet</servlet-name>
-		<url-pattern></url-pattern>
-	</servlet-mapping>
 
 	<jsp-config>
 		<jsp-property-group>

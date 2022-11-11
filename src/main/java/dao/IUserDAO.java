@@ -48,5 +48,5 @@ public interface IUserDAO {
      * @param id
      * @return
     */
-	void delete(int id);
+	void delete(User user);
 }

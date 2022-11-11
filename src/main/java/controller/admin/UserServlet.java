@@ -1,4 +1,4 @@
-package controller;
+package controller.admin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -30,7 +30,7 @@ public class UserServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("users", userDAO.getAll(User.class));
+		request.setAttribute("users", userDAO.getAll());
 		request.getRequestDispatcher("/admin/manage-user.jsp").forward(request, response);
 	}
 

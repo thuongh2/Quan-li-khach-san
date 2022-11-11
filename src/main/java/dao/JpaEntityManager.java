@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -63,9 +64,12 @@ public class JpaEntityManager {
 	}
 
 	public <T> List<T> getAll(final Class<T> type) {
-		Transaction trans = getCurentSession().beginTransaction();
-		List<T> ts = getCurentSession().getNamedQuery("findAll").list();
-		trans.commit();
-		return ts;
+		EntityManager em = sessionFactory.createEntityManager();
+		CriteriaBuilder cBuilder = em.getCriteriaBuilder();
+		CriteriaQuery<T> ts = cBuilder.createQuery(type);
+		Root<T> root = ts.from(type);
+		CriteriaQuery<T> allCriteriaQuery = ts.select(root);
+		TypedQuery<T> alQuery = em.createQuery(allCriteriaQuery);
+		return alQuery.getResultList();
 	}
 }

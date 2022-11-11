@@ -36,6 +36,7 @@ public class Hotel implements Serializable {
 
 	private String content;
 
+	@Column(name="image", columnDefinition="TEXT")
 	private String image;
 
 	@OneToMany

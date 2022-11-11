@@ -301,7 +301,7 @@ table.table .avatar {
 			var id = $(this).parent().find('#id').val();
 			$.ajax({
 				type: "GET",
-				url: '${pageContext.request.contextPath }/PostServlet',
+				url: '${pageContext.request.contextPath }/HotelAdminServlet',
 				data: {action: 'find', id: id},
 				dataType: 'json',
 				contentType: 'application/json',
@@ -404,7 +404,7 @@ table.table .avatar {
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form method="POST"
-					action='${pageContext.request.contextPath }/PostServlet?action=create'>
+					action='${pageContext.request.contextPath }/HotelAdminServlet?action=create'>
 					<div class="modal-header">
 						<h4 class="modal-title">Add Hotel</h4>
 						<button type="button" class="close" data-dismiss="modal"
@@ -454,7 +454,7 @@ table.table .avatar {
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form method="POST"
-					action='${pageContext.request.contextPath }/PostServlet?action=update'>
+					action='${pageContext.request.contextPath }/HotelAdminServlet?action=update'>
 					<div class="modal-header">
 						<h4 class="modal-title">Edit Employee</h4>
 						<button type="button" class="close" data-dismiss="modal"
@@ -504,7 +504,7 @@ table.table .avatar {
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form method='POST'
-					action='${pageContext.request.contextPath }/PostServlet?action=delete'>
+					action='${pageContext.request.contextPath }/HotelAdminServlet?action=delete'>
 					<div class="modal-header">
 						<h4 class="modal-title">Delete Employee</h4>
 						<button type="button" class="close" data-dismiss="modal"

@@ -32,6 +32,7 @@ public class HotelDetail implements Serializable {
 
 	private double price;
 
+	@Column(name="description", columnDefinition="TEXT")
 	private String description;
 
 	@OneToOne
