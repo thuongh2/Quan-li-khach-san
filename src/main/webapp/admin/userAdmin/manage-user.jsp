@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Manage User</title>
+<title>Quản lý người dùng</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -288,7 +288,6 @@ $(document).ready(function(){
 						<th>Email</th>
 						<th>Phone</th>
 						<th>Username</th>
-						<th>Password</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -300,8 +299,7 @@ $(document).ready(function(){
 							<td>${user.name}</td>
 							<td>${user.email}</td>
 							<td>${user.phone}</td>
-							<td>username</td>
-							<td>password</td>
+							<td>${user.userLogin.username}</td>
 							<td>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -310,56 +308,55 @@ $(document).ready(function(){
 					</tbody>
 				</c:forEach>
 			</table>
-			<div class="clearfix">
-				<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-				<ul class="pagination">
-					<li class="page-item disabled"><a href="#">Previous</a></li>
-					<li class="page-item"><a href="#" class="page-link">1</a></li>
-					<li class="page-item"><a href="#" class="page-link">2</a></li>
-					<li class="page-item active"><a href="#" class="page-link">3</a></li>
-					<li class="page-item"><a href="#" class="page-link">4</a></li>
-					<li class="page-item"><a href="#" class="page-link">5</a></li>
-					<li class="page-item"><a href="#" class="page-link">Next</a></li>
-				</ul>
-			</div>
 		</div>
 	</div>        
 </div>
 <!-- Edit Modal HTML -->
-<div id="addEmployeeModal" class="modal fade">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<form>
-				<div class="modal-header">						
-					<h4 class="modal-title">Add Employee</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">					
-					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control" required>
+	<div id="addEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form method="POST"
+					action='${pageContext.request.contextPath }/UserServlet?action=create'>
+					<div class="modal-header">
+						<h4 class="modal-title">Add User</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
 					</div>
-					<div class="form-group">
-						<label>Email</label>
-						<input type="email" class="form-control" required>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Name</label> <input type="text" name="name"
+								class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Email</label> <input type="text" name="email"
+								class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Phone</label> <input type="text" name="phone"
+								class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Username</label> <input type="text" name="username"
+								class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Password</label> <input type="text" name="password"
+								class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Role</label> <input type="text" name="role"
+								class="form-control" required>
+						</div>
 					</div>
-					<div class="form-group">
-						<label>Address</label>
-						<textarea class="form-control" required></textarea>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal"
+							value="Cancel"> <input type="submit"
+							class="btn btn-success" value="Add">
 					</div>
-					<div class="form-group">
-						<label>Phone</label>
-						<input type="text" class="form-control" required>
-					</div>					
-				</div>
-				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-success" value="Add">
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
 <!-- Edit Modal HTML -->
 <div id="editEmployeeModal" class="modal fade">
 	<div class="modal-dialog">

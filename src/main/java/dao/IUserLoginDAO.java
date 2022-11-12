@@ -8,14 +8,14 @@ public interface IUserLoginDAO {
 	/**
      * Lay danh sach dap nhap tai khoan nguoi dung
     */
-	List<UserLogin> getAllUserLogin();
+	List<UserLogin> getAll();
 	
 	/**
      * Lay 1 tai khoan dap nhap cua nguoi dung theo id
      *
      * @param id
     */
-	UserLogin getUserLoginById(UserLogin id);
+	UserLogin get(int id);
 	
 	/**
      * Tao dap nhap tai khoan nguoi dung
@@ -23,7 +23,7 @@ public interface IUserLoginDAO {
      * @param username
      * @return
     */
-	void createUserLogin(UserLogin userlogin);
+	void save(UserLogin userlogin);
 	
 	/**
      * Cap nhat dap nhap tai khoan nguoi dung
@@ -31,7 +31,7 @@ public interface IUserLoginDAO {
      * @param username
      * @return
     */
-	void updateUserLogin(UserLogin userlogin);
+	void update(UserLogin userlogin);
 	
 	/**
      * Xoa dap nhap tai khoan nguoi dung theo id
@@ -39,5 +39,5 @@ public interface IUserLoginDAO {
      * @param username
      * @return
     */
-	void deleteUserLogin(UserLogin id);
+	void delete(UserLogin id);
 }
