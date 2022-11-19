@@ -107,7 +107,9 @@
 								<div class="about_thumb">
 									<img src="${hotel.image }" height="255.5" alt="" />
 								</div>
-								<h4 class="p-3" style="height: 70px;">${hotel.content }</h4>
+								<h4 class="p-3 font-weight-bold" style="height: 70px;">${hotel.content }</h4>
+								<h4>Số phòng: ${hotel.hotelDetail.numberRoom }</h4>
+								<p>Giá: ${hotel.hotelDetail.price } VNĐ</p>
 								<p style="height: 200px; display: block">
 									${hotel.hotelDetail.description }</p>
 								<a href="#" class="book_now">Đặt ngay</a>
@@ -125,7 +127,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-12">
-					<div class="section_title text-center mb-100">
+					<div class="section_title text-center my-5">
 						<span>Phòng nổi bật</span>
 						<h3>Chọn phòng tốt theo nhu cầu</h3>
 					</div>
