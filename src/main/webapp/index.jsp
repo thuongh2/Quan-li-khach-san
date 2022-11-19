@@ -99,22 +99,21 @@
 		<div class="container">
 			<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
-
 			<div class="row">
 				<c:forEach items="${hotels}" var="hotel">
-					<div class="col-xl-4 col-md-4">
-						<div class="single_offers">
-							<div class="about_thumb">
-								<img src="${hotel.image }" height="255.5" alt="" />
+					<a href="RoomServlet?id=${hotel.id }">
+						<div class="col-xl-4 col-md-4 my-3">
+							<div class="single_offers">
+								<div class="about_thumb">
+									<img src="${hotel.image }" height="255.5" alt="" />
+								</div>
+								<h4 class="p-3" style="height: 70px;">${hotel.content }</h4>
+								<p style="height: 200px; display: block">
+									${hotel.hotelDetail.description }</p>
+								<a href="#" class="book_now">Đặt ngay</a>
 							</div>
-							<h4>${hotel.content }</h4>
-							<ul>
-								<li>${hotel.hotelDetail.description }</li>
-							</ul>
-							<a href="#" class="book_now">Đặt ngay</a>
 						</div>
-					</div>
+					</a>
 				</c:forEach>
 			</div>
 		</div>

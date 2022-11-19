@@ -45,11 +45,11 @@
 	<!-- bradcam_area_end -->
 
 	<!-- offers_area_start -->
-	<div class="offers_area padding_top">
+	<div class="offers_area">
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-12">
-					<div class="section_title text-center mb-100">
+					<div class="section_title text-center my-5">
 						<span>Đề xuất</span>
 
 					</div>
@@ -59,17 +59,17 @@
 
 			<c:forEach items="${hotels}" var="hotel">
 			<a href="RoomServlet?id=${hotel.id }">
-				<div class="col-xl-4 col-md-4">
+				<div class="col-xl-4 col-md-4 my-4">
 					<div class="single_offers">
 						<div class="about_thumb">
-							<img src="${hotel.image }" alt="" height="400px">
+							<img src="${hotel.image }" alt="" height="255">
 						</div>
-						<h4>${hotel.content }</h4>
-						<ul>
-							<li>${hotel.hotelDetail.address }</li>
-							<li>Số phòng: ${hotel.hotelDetail.numberRoom }</li>
-							<li>Giá: ${hotel.hotelDetail.price }</li>
-						</ul>
+						<h4 class="p-3" style="height: 70px;">${hotel.content }</h4>
+						<div style="height: 180px; display: block">
+							<p>${hotel.hotelDetail.address }</p>
+							<p>Số phòng: ${hotel.hotelDetail.numberRoom }</p>
+							<p>Giá: ${hotel.hotelDetail.price }</p>
+						</div>
 						<a href="#" class="book_now">book now</a>
 					</div>
 				</div>

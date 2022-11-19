@@ -342,7 +342,7 @@ table.table .avatar {
 </script>
 </head>
 <body>
-	
+
 	<div class="container">
 		<div class="table-responsive">
 			<div class="table-wrapper">
@@ -354,7 +354,7 @@ table.table .avatar {
 						<div class="col-xs-6">
 							<a href="#addEmployeeModal" class="btn btn-success"
 								data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add
-									New Employee</span></a>
+									New Hotel</span></a>
 						</div>
 					</div>
 				</div>
@@ -366,6 +366,7 @@ table.table .avatar {
 							</span></th>
 							<th>id</th>
 							<th>Content</th>
+							<th>Image</th>
 							<th>Address</th>
 							<th>Number Room</th>
 							<th>Price</th>
@@ -381,6 +382,9 @@ table.table .avatar {
 								</span></td>
 								<td>${hotel.id }</td>
 								<td>${hotel.content }</td>
+								<td>
+									<img src="${hotel.image }" height="100px" width="100px"></img>
+								</td>
 								<td>${hotel.hotelDetail.address }</td>
 								<td>${hotel.hotelDetail.numberRoom }</td>
 								<td>${hotel.hotelDetail.price }</td>

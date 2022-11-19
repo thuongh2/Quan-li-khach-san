@@ -2,6 +2,7 @@ package controller.admin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -131,7 +132,7 @@ public class HotelAdminServlet extends HttpServlet {
 		hotelDetail.setArea(Integer.parseInt(area));
 		hotelDetail.setNumberRoom(Integer.parseInt(numberRoom));
 		hotelDetail.setAddress(address);
-		hotelDetail.setPrice(Double.parseDouble(price));
+		hotelDetail.setPrice(BigDecimal.valueOf(Double.parseDouble(price)));
 		hotelDetail.setDesc(desc);
 
 		postDAO.savePostAndHotel(post, hotelDetail);
@@ -150,7 +151,7 @@ public class HotelAdminServlet extends HttpServlet {
 		hotelDetail.setArea(Integer.parseInt(request.getParameter("area")));
 		hotelDetail.setNumberRoom(Integer.parseInt(request.getParameter("numberRoom")));
 		hotelDetail.setAddress(request.getParameter("address"));
-		hotelDetail.setPrice(Double.parseDouble( request.getParameter("price")));
+		hotelDetail.setPrice(BigDecimal.valueOf(Double.parseDouble(request.getParameter("price"))));
 		hotelDetail.setDesc(request.getParameter("desc"));
 
 		postDAO.saveOrUpdate(hotel);
