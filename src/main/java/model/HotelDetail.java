@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -30,7 +31,7 @@ public class HotelDetail implements Serializable {
 
 	private String address;
 
-	private double price;
+	private BigDecimal price;
 
 	@Column(name="description", columnDefinition="TEXT")
 	private String description;
@@ -74,11 +75,11 @@ public class HotelDetail implements Serializable {
 		this.address = address;
 	}
 
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 

@@ -74,7 +74,8 @@ public class HotelAdminServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("hotels", postDAO.getAll(Hotel.class));
-		request.getRequestDispatcher("/admin/hotelAdmin/hotelAdmin.jsp").forward(request, response);
+		request.setAttribute("jspName", "hotelAdmin.jsp");
+		request.getRequestDispatcher("/admin/template.jsp").forward(request, response);
 	}
 
 	/**
