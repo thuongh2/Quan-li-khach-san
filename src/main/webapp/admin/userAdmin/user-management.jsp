@@ -244,6 +244,31 @@ $(document).ready(function(){
 	// Activate tooltip
 	$('[data-toggle="tooltip"]').tooltip();
 	
+	$('table .delete').on('click', function() {
+		var id = $(this).parent().find('#id').val();
+		$('#deleteUserModal #id').val(id);
+	})
+
+	$('table .edit').on('click', function() {
+		var id = $(this).parent().find('#id').val();
+		$.ajax({
+			type: "GET",
+			url: '${pageContext.request.contextPath }/UserServlet',
+			data: {action: 'find', id: id},
+			dataType: 'json',
+			contentType: 'application/json',
+			success: function(result) {
+				$('#editUserModal #id').val(result.id);
+				$('#editUserModal #name').val(result.name);
+				$('#editUserModal #email').val(result.email);
+				$('#editUserModal #phone').val(result.phone);
+				$('#editUserModal #username').val(result.userLogin.username);
+				$('#editUserModal #password').val(result.userLogin.password);
+				$('#editUserModal #role').val(result.userLogin.role);
+			}
+		})
+	})
+	
 	// Select/Deselect checkboxes
 	var checkbox = $('table tbody input[type="checkbox"]');
 	$("#selectAll").click(function(){
@@ -275,8 +300,7 @@ $(document).ready(function(){
 						<h2>Quản lý người dùng</h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
-						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
+						<a href="#addUserModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>						
 					</div>
 				</div>
 			</div>
@@ -301,8 +325,9 @@ $(document).ready(function(){
 							<td>${user.phone}</td>
 							<td>${user.userLogin.username}</td>
 							<td>
-								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								<a href="#editUserModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+								<a href="#deleteUserModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								<input type='hidden' name='id' id='id' value='${user.id }'></input>
 							</td>
 						</tr>
 					</tbody>
@@ -312,7 +337,7 @@ $(document).ready(function(){
 	</div>        
 </div>
 <!-- Edit Modal HTML -->
-	<div id="addEmployeeModal" class="modal fade">
+	<div id="addUserModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form method="POST"
@@ -349,69 +374,90 @@ $(document).ready(function(){
 						</div>
 					</div>
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal"
-							value="Cancel"> <input type="submit"
-							class="btn btn-success" value="Add">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel"> 
+						<input type="submit" class="btn btn-success" value="Add">
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 <!-- Edit Modal HTML -->
-<div id="editEmployeeModal" class="modal fade">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<form>
-				<div class="modal-header">						
-					<h4 class="modal-title">Edit Employee</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">					
-					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control" required>
+	<!-- Edit Modal HTML -->
+	<div id="editUserModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form method="POST"
+					action='${pageContext.request.contextPath }/UserServlet?action=update'>
+					<div class="modal-header">
+						<h4 class="modal-title">Edit User</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
 					</div>
-					<div class="form-group">
-						<label>Email</label>
-						<input type="email" class="form-control" required>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Name</label> <input type="text" name="name" id="name"
+								class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Email</label> <input type="text" name="email" id="email"
+								class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Phone</label> <input type="text" name="phone" id="phone"
+								class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Username</label> <input type="text" name="username" id="username"
+								class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Password</label> <input type="text" name="password" id="password"
+								class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Role</label> <input type="text" name="role" id="role"
+								class="form-control" required>
+						</div>
 					</div>
-					<div class="form-group">
-						<label>Address</label>
-						<textarea class="form-control" required></textarea>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal"
+							value="Cancel"> 
+						<input type="submit" class="btn btn-info"
+							value="Save"> 
+						<input type='hidden' name='id' id='id'></input>
 					</div>
-					<div class="form-group">
-						<label>Phone</label>
-						<input type="text" class="form-control" required>
-					</div>					
-				</div>
-				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-info" value="Save">
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
 <!-- Delete Modal HTML -->
-<div id="deleteEmployeeModal" class="modal fade">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<form>
-				<div class="modal-header">						
-					<h4 class="modal-title">Delete Employee</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">					
-					<p>Are you sure you want to delete these Records?</p>
-					<p class="text-warning"><small>This action cannot be undone.</small></p>
-				</div>
-				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-danger" value="Delete">
-				</div>
-			</form>
+<div id="deleteUserModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form method='POST'
+					action='${pageContext.request.contextPath }/UserServlet?action=delete'>
+					<div class="modal-header">
+						<h4 class="modal-title">Delete User</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<p>Are you sure you want to delete these Records?</p>
+						<p class="text-warning">
+							<small>This action cannot be undone.</small>
+						</p>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal"
+							value="Cancel"> 
+						<input type="submit"
+							class="btn btn-danger" value="Delete"> 
+						<input
+							type='hidden' name='id' id='id'></input>
+					</div>
+				</form>
+			</div>
 		</div>
-	</div>
 </div>
 </body>
 </html>

@@ -1,9 +1,10 @@
 <div class="wrap">
    <div class="search">
-      <input type="text" class="searchTerm" placeholder="Search">
-      <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-     </button>
+	   <form action="" method="post">
+	   		<input type="text" class="searchTerm" name="search" placeholder="Search">
+	      	<input type="submit" class="searchButton">
+	        <i class="fa fa-search"></i>
+	   </form>
    </div>
 </div>
 
