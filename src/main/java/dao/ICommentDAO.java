@@ -40,5 +40,5 @@ public interface ICommentDAO {
      * @param id
      * @return
     */
-	void deleteComment(int id);
+	void deleteComment(Comment comment);
 }
