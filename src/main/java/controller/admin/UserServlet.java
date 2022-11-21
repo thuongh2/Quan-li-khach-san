@@ -61,7 +61,8 @@ public class UserServlet extends HttpServlet {
 			doGet_Find(request, response);
 		}
 		request.setAttribute("users", userDAO.getAll());
-		request.getRequestDispatcher("/admin/userAdmin/user-management.jsp").forward(request, response);
+		request.setAttribute("jspName", "./userAdmin/user-management.jsp");
+		request.getRequestDispatcher("/admin/template.jsp").forward(request, response);
 	}
 
 	/**

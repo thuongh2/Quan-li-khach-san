@@ -566,7 +566,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="PaymentServlet">
                     <i class='bx bx-pie-chart-alt-2'></i>
                     <span class="links_name">Payment</span>
                 </a>

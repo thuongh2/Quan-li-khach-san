@@ -40,5 +40,5 @@ public interface IPaymentDAO {
      * @param id
      * @return
     */
-	void deletePayment(int id);
+	void deletePayment(Payment payment);
 }

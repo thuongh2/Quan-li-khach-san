@@ -1,9 +1,13 @@
 package model;
 
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +21,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "payment")
-public class Payment {
+public class Payment implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,11 +29,18 @@ public class Payment {
 	
 	private Date paymentDate;
 	
-	private double paymentPrice;
+	private BigDecimal paymentPrice;
 	
 	private String paymentOption;
 	
-	@OneToOne
+	@Column(name="description", columnDefinition="TEXT")
+	private String description;
+	
+	// thanh toán cho bài đăng khách sạn nào
+	@OneToOne(fetch = FetchType.LAZY)
+	private Hotel hotel;
+	
+	@OneToOne(fetch = FetchType.LAZY)
 	private User userPayment;
 	
 	public int getId() {
@@ -48,11 +59,11 @@ public class Payment {
 		this.paymentDate = paymentDate;
 	}
 
-	public double getPaymentPrice() {
+	public BigDecimal getPaymentPrice() {
 		return paymentPrice;
 	}
 
-	public void setPaymentPrice(double paymentPrice) {
+	public void setPaymentPrice(BigDecimal paymentPrice) {
 		this.paymentPrice = paymentPrice;
 	}
 
@@ -62,6 +73,30 @@ public class Payment {
 
 	public void setPaymentOption(String paymentOption) {
 		this.paymentOption = paymentOption;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
+	}
+
+	public User getUserPayment() {
+		return userPayment;
+	}
+
+	public void setUserPayment(User userPayment) {
+		this.userPayment = userPayment;
 	}
 
 }
