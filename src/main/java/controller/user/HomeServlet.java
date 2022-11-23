@@ -34,6 +34,12 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		List<Hotel> hotels = hotelDAO.getAll();
+		
+		String username = (String) request.getSession(false).getAttribute("user");
+		if(username != null) {
+			request.setAttribute("username", username);
+		}
+			
 		request.setAttribute("hotels", hotelDAO.getAll());
 		request.getRequestDispatcher("./index.jsp").forward(request, response);
 	}

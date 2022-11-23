@@ -28,9 +28,10 @@ public class UserLoginDAO extends JpaEntityManager implements IUserLoginDAO {
 		query.setParameter("username",username);
 		query.setParameter("password",password);
 		
-		UserLogin user = (UserLogin) query.getResultList().get(0);
+		List<UserLogin> user =query.getResultList();
+		
 		trans.commit();
-		if(user != null)
+		if(user != null && user.size() > 0)
 			return true;
 		return false;
 	}

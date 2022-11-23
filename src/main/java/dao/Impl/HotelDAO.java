@@ -27,7 +27,7 @@ public class HotelDAO extends JpaEntityManager implements IHotelDAO {
 
 	public List<Hotel> getByName(String name) {
 		Transaction trans = getCurentSession().beginTransaction();
-		Query query = getCurentSession().createQuery("From Hotel as rb where rb.content  like :keyword");
+		Query query = getCurentSession().createQuery("From Hotel rb INNER JOIN rb.hotelDetail where rb.content  like :keyword");
 		query.setParameter("keyword","%" + name + "%");
 		
 		List<Hotel> hotels = query.getResultList();
