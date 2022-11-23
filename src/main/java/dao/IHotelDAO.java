@@ -10,7 +10,6 @@ public interface IHotelDAO {
 	
 	Hotel get(int id);
 	
-	Hotel getByName(String name);
 	
 	void save(Hotel post);
 	

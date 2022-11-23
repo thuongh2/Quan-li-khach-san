@@ -35,7 +35,7 @@ public class HomeServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		List<Hotel> hotels = hotelDAO.getAll();
 		request.setAttribute("hotels", hotelDAO.getAll());
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
+		request.getRequestDispatcher("./index.jsp").forward(request, response);
 	}
 
 	/**

@@ -3,6 +3,9 @@ package dao.Impl;
 import java.util.List;
 import java.util.UUID;
 
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 import dao.IHotelDAO;
 import dao.JpaEntityManager;
 import model.HotelDetail;
@@ -22,10 +25,14 @@ public class HotelDAO extends JpaEntityManager implements IHotelDAO {
 		
 	}
 
-	@Override
-	public Hotel getByName(String name) {
-		// TODO Auto-generated method stub
-		return getCurentSession().get(Hotel.class, name);
+	public List<Hotel> getByName(String name) {
+		Transaction trans = getCurentSession().beginTransaction();
+		Query query = getCurentSession().createQuery("From Hotel as rb where rb.content  like :keyword");
+		query.setParameter("keyword","%" + name + "%");
+		
+		List<Hotel> hotels = query.getResultList();
+		trans.commit();
+		return hotels;
 	}
 
 	@Override
