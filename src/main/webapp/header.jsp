@@ -1,4 +1,6 @@
 <!-- header-start -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <header>
 	<div class="header-area bg-black">
 		<div id="sticky-header" class="main-header-area">
@@ -15,7 +17,6 @@
 							</nav>
 						</div>
 					</div>
-					>
 					<div class="col d-none d-lg-block">
 						<div class="book_room">
 							<div class="socail_links">
@@ -31,13 +32,16 @@
 								String username = (String) session.getAttribute("user");
 								if (username != null) {
 								%>
-								<a href="HotelAdminServlet" class="btn btn-primary btn-lg " role="button" aria-disabled="true">${ username}</a>
-								
+								<a href="HotelAdminServlet" style="height: 42px" class="mx-2 btn btn-primary btn-lg rounded-0"
+									role="button" aria-disabled="true">
+									<i class="bi bi-person-circle mx-1"></i>${ username}</a>
+
 								<%
 								} else {
 								%>
-								<a href="./login.jsp" class="btn btn-primary btn-lg " role="button" aria-disabled="true">Login</a>
-								
+								<a href="./login.jsp" style="height: 42px" class="mx-2 btn btn-primary btn-lg rounded-0"
+									role="button" aria-disabled="true">Login</a>
+
 								<%
 								}
 								%>
@@ -51,6 +55,10 @@
 			</div>
 		</div>
 	</div>
-
+	<style>
+.btn-custom {
+	
+}
+</style>
 </header>
 <!-- header-end -->

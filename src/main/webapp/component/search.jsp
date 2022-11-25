@@ -1,16 +1,18 @@
 
-<form action="${pageContext.request.contextPath }/SearchServlet?action=search" method="get">
-	<div class="wrap">
-		<div class="search">
-			<input type="text" class="searchTerm" name="search"
-				placeholder="Search">
-			<input type="submit" class="searchButton">
-				<i class="fa fa-search"></i>
-			</input>
 
-		</div>
+
+	<div class="search">
+		<form class="d-flex"
+			action="${pageContext.request.contextPath }/SearchServlet?action=search"
+			method="get">
+			<input type="text" class="searchTerm" name="search"
+				placeholder="Search"> 
+				<button  type="submit"
+				class="searchButton">  <i class="fa fa-search"></i> </button >
+		</form>
 	</div>
-</form>
+
+
 
 <style>
 .search {

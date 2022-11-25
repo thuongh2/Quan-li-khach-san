@@ -1,5 +1,6 @@
 package dao.Impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,10 +26,25 @@ public class HotelDAO extends JpaEntityManager implements IHotelDAO {
 		
 	}
 
-	public List<Hotel> getByName(String name) {
+	public List<Hotel> getByName(String name, String room, String price) {
 		Transaction trans = getCurentSession().beginTransaction();
-		Query query = getCurentSession().createQuery("From Hotel rb INNER JOIN rb.hotelDetail where rb.content  like :keyword");
+		String sql = "From Hotel rb INNER JOIN rb.hotelDetail where rb.content  like :keyword";
+		if(room != null) {
+			sql += " and rb.hotelDetail.numberRoom <= :room";
+		}
+		if(price != null) {
+			sql += " and rb.hotelDetail.price <= :price";
+		}
+		Query query = getCurentSession().createQuery(sql);
+		
 		query.setParameter("keyword","%" + name + "%");
+		
+		if(room != null) {
+			query.setParameter("room", Integer.valueOf(room));
+		}
+		if(price != null) {
+			query.setParameter("price",BigDecimal.valueOf(Long.parseLong(price)));
+		}
 		
 		List<Hotel> hotels = query.getResultList();
 		trans.commit();

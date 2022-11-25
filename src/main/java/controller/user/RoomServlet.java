@@ -10,11 +10,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Impl.CommentDAO;
 import dao.Impl.HotelDAO;
+import dao.Impl.UserDAO;
 import model.Comment;
 import model.Hotel;
+import model.User;
 
 /**
  * Servlet implementation class RoomServlet
@@ -24,6 +27,7 @@ public class RoomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HotelDAO hotelDAO = new HotelDAO();
 	private CommentDAO commentDAO = new CommentDAO();
+	private UserDAO userDAO = new UserDAO();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -77,12 +81,19 @@ public class RoomServlet extends HttpServlet {
 	protected void doPost_Create_Comment(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
+		HttpSession session = request.getSession(true);
+		String username = (String) session.getAttribute("user");
 		if (id != null) {
 			String content = request.getParameter("content");
 			Comment comment = new Comment();
 			comment.setContent(content);
 			comment.setCommentDate(new Date());
-			comment.setUser(null); // tạm thời
+			if(username != null) {
+				User user = userDAO.getByName(username);
+				comment.setUser(user); // tạm thời
+			}else {
+				comment.setUser(null); // tạm thời
+			}
 
 			commentDAO.createComment(comment);
 			Hotel hotel = hotelDAO.get(Integer.parseInt(id));

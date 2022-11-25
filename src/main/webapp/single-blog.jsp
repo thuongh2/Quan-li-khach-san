@@ -151,7 +151,7 @@
                               <div class="d-flex justify-content-between">
                                  <div class="d-flex align-items-center">
                                     <h5>
-                                       <a href="#">Emilly Blunt</a>
+                                       <a href="#"> ${comment.user.userLogin.username }</a>
                                     </h5>
                                     <p class="date">${comment.commentDate } </p>
                                  </div>
